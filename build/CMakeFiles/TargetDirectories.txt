@@ -1,3 +1,0 @@
-/Users/cmt/FileOrganizer/build/CMakeFiles/organizer.dir
-/Users/cmt/FileOrganizer/build/CMakeFiles/edit_cache.dir
-/Users/cmt/FileOrganizer/build/CMakeFiles/rebuild_cache.dir
