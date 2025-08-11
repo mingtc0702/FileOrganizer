@@ -1,0 +1,20 @@
+rules:
+  .jpg: Images
+  .jpeg: Images
+  .png: Images
+  .txt: Documents
+  .pdf: Documents
+  .docx: Documents
+  .mp3: Music
+  .wav: Music
+  .mp4: Videos
+  .mov: Videos
+  .zip: Archives
+  .rar: Archives
+
+ignore:
+  - .DS_Store
+  - thumbs.db
+  - .tmp
+
+default_dir: Uncategorized
