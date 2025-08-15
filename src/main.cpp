@@ -1,25 +1,26 @@
 #include <fstream>
-#include <yaml-cpp/yaml.h>  // YAML配置解析
+#include <yaml-cpp/yaml.h>
 #include <iostream>
 #include <filesystem>
-#include <map>         
-#include <algorithm>    
-#include <cctype>       
-#include <vector>        // 用于存储忽略列表
+#include <map>
+#include <algorithm>
+#include <cctype>
+#include <vector>
+#include <thread>
+#include "FolderWatcher.h"  // 监控功能头文件
 namespace fs = std::filesystem;
 
 int main(int argc, char* argv[]) {
-    // 支持命令行参数
+    // ===== 1. 命令行参数处理 =====
     fs::path sourceDir = (argc > 1) ? argv[1] : "./TestFiles";
     std::cout << "整理目录: " << sourceDir << std::endl;
     
-    // ===== YAML配置解析 =====
-    std::map<std::string, std::string> rules;  // 文件规则映射
-    std::vector<std::string> ignoreList = {".DS_Store"};  // 默认忽略文件
-    std::string defaultDir = "Uncategorized";  // 默认目录
+    // ===== 2. YAML配置解析 =====
+    std::map<std::string, std::string> rules;
+    std::vector<std::string> ignoreList = {".DS_Store"};
+    std::string defaultDir = "Uncategorized";
     
     try {
-        // 尝试加载配置文件
         YAML::Node config = YAML::LoadFile("config.yaml");
         
         // 解析分类规则
@@ -51,9 +52,16 @@ int main(int argc, char* argv[]) {
         };
         std::cerr << "警告：配置文件加载失败，使用默认规则" << std::endl;
     }
-    // ===== YAML解析结束 =====
     
-    // 只处理文件
+    // ===== 3. 监控模式检查 =====
+    if (argc > 2 && std::string(argv[2]) == "--watch") {
+        std::cout << "🔍 进入监控模式 (Ctrl+C退出)\n";
+        FolderWatcher watcher(sourceDir, rules, ignoreList, defaultDir); // 传入配置
+        watcher.start();
+        return 0;
+    }
+    
+    // ===== 4. 单次文件整理 =====
     for (const auto& entry : fs::directory_iterator(sourceDir)) {
         if (!entry.is_regular_file()) continue; // 跳过文件夹
         
