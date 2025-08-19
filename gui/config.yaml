@@ -1,0 +1,22 @@
+# Default rules for file organizer
+rules:
+  ".jpg":  Images
+  ".jpeg": Images
+  ".png":  Images
+  ".gif":  Images
+  ".txt":  Documents
+  ".pdf":  Documents
+  ".docx": Documents
+  ".xlsx": Documents
+  ".csv":  Documents
+  ".mp3":  Music
+  ".wav":  Music
+  ".mp4":  Videos
+  ".mov":  Videos
+  ".zip":  Archives
+  ".rar":  Archives
+
+ignore:
+  - ".DS_Store"
+
+default_dir: Uncategorized

@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget {
+    font-size: 13px;
+}
+
+QPushButton {
+    padding: 6px 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(0,0,0,25%);
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                                stop:0 #ffffff, stop:1 #f2f2f2);
+}
+QPushButton:hover {
+    background: #f7f7f7;
+}
+QPushButton:pressed {
+    background: #eaeaea;
+}
+
+QLineEdit {
+    padding: 6px 8px;
+    border: 1px solid rgba(0,0,0,20%);
+    border-radius: 6px;
+    background: #ffffff;
+}
+
+QCheckBox {
+    padding: 2px 0;
+}
+
+QProgressBar {
+    background: #e9e9ec;
+    border: none;
+    border-radius: 4px;
+    text-align: center;
+}
+QProgressBar::chunk {
+    border-radius: 4px;
+    background-color: #4a90e2;
+}
+</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <property name="spacing">
+     <number>12</number>
+    </property>
+    <property name="leftMargin">
+     <number>24</number>
+    </property>
+    <property name="topMargin">
+     <number>24</number>
+    </property>
+    <property name="rightMargin">
+     <number>24</number>
+    </property>
+    <property name="bottomMargin">
+     <number>24</number>
+    </property>
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <property name="spacing">
+       <number>10</number>
+      </property>
+      <property name="leftMargin">
+       <number>10</number>
+      </property>
+      <property name="topMargin">
+       <number>10</number>
+      </property>
+      <property name="rightMargin">
+       <number>10</number>
+      </property>
+      <property name="bottomMargin">
+       <number>10</number>
+      </property>
+      <item>
+       <widget class="QCheckBox" name="chkWatch">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="toolTip">
+         <string>Automatically process new files</string>
+        </property>
+        <property name="text">
+         <string>Enable Watch</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,0">
+        <property name="spacing">
+         <number>8</number>
+        </property>
+        <item>
+         <widget class="QPushButton" name="btnSelectDir">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="toolTip">
+           <string>Select a directory</string>
+          </property>
+          <property name="statusTip">
+           <string/>
+          </property>
+          <property name="text">
+           <string>Browse…</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="txtPath">
+          <property name="text">
+           <string>Enter directory path...</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnStart">
+        <property name="text">
+         <string>Start</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="lblStatus">
+        <property name="toolTip">
+         <string>Displays current status</string>
+        </property>
+        <property name="text">
+         <string>Ready</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QProgressBar" name="progressBar">
+        <property name="toolTip">
+         <string>Shows current progress</string>
+        </property>
+        <property name="value">
+         <number>0</number>
+        </property>
+        <property name="textVisible">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>36</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
